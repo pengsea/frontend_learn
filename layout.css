@@ -1,0 +1,198 @@
+/*左右布局*/
+.p {
+    background: #333;
+}
+
+.l {
+    background: #666;
+    color: #ff0000;
+}
+
+.r {
+    background: #999;
+    color: #00ff00;
+}
+
+.l1 {
+    float: left;
+    width: 100px;
+}
+
+.r1 {
+    margin-left: 100px;
+}
+
+.l2 {
+    float: left;
+    width: 100px;
+}
+
+.r2 {
+    overflow: hidden;
+}
+
+
+.p3 {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.l3, .r3 {
+    display: table-cell;
+}
+
+.l3 {
+    width: 100px;
+}
+
+.p4 {
+    display: flex;
+}
+
+.l4 {
+    width: 100px;
+}
+
+.r4 {
+    flex: 1;
+}
+
+.l5 {
+    float: left;
+}
+
+.r5 {
+    overflow: hidden;
+}
+
+.p6 {
+    display: table;
+    width: 100%;
+}
+
+.l6, .r6 {
+    display: table-cell;
+}
+
+.l6 {
+    width: 1px;
+}
+
+.p7 {
+    display: flex;
+}
+
+.r7 {
+    flex: 1;
+}
+
+/*多列布局*/
+.pp {
+    background: #333;
+}
+
+.col {
+    background: #666;
+    color: #0000ff;
+}
+
+.pp1 {
+    margin-left: -20px;
+}
+
+.col1 {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.pp-p {
+    margin-left: -20px;
+}
+
+.pp2 {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.col2 {
+    display: table-cell;
+    padding-left: 20px;
+}
+
+.pp3 {
+    display: table;
+    table-layout: fixed;
+    width: calc(100% + 20px);
+    margin-left: -20px;
+}
+
+.col3 {
+    display: table-cell;
+    padding-left: 20px;
+}
+
+.pp4 {
+    display: flex;
+}
+
+.col4 {
+    flex: 1;
+}
+
+.col4 + .col4 {
+    margin-left: 20px;
+}
+
+/*等高布局*/
+.ppp {
+    background: #333;
+}
+
+.left {
+    background: #666;
+}
+.right{
+    background: #999;
+}
+.ppp1{
+    display: table;width: 100%;
+    table-layout: fixed;
+}
+.left1 {
+    display: table-cell;
+    width: 100px;border-right: 20px solid transparent;
+    background-clip: padding-box;
+}
+
+.right1 {
+    display: table-cell;
+}
+
+.ppp2 {
+   display: flex;
+}
+
+.left2 {
+    width: 100px;margin-right: 20px;
+}
+
+.right2 {
+    flex: 1;
+}
+.ppp3{
+    overflow: hidden;
+}
+.left3{
+    float: left;width: 100px;margin-right: 20px;
+}
+.right3{
+    overflow: hidden;
+}
+.left3,.right3{
+    padding-bottom: 9999px;
+    margin-bottom: -9999px;
+}

@@ -1,0 +1,5 @@
+/*重置默认样式*/
+p{
+    margin-block-start: auto;
+    margin-block-end: auto;
+}
