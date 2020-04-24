@@ -1,0 +1,84 @@
+.g-header {
+    height: 90px;
+    background-color: #fff;
+}
+
+.g-banner {
+    height: 356px;
+    position: relative;
+}
+
+.g-body {
+    width: 1080px;
+    margin: 50px auto 0;
+}
+
+.g-main {
+    width: 760px;
+    float: left;
+}
+
+.g-side {
+    width: 295px;
+    float: right;
+}
+
+.g-footer {
+    width: 1080px;
+    margin: 0 auto;
+}
+
+.m-tabs {
+    position: relative;
+}
+
+.m-tabs ul > li {
+    float: left;
+    padding: 13px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.m-tabs .tabs_track {
+    position: absolute;
+    bottom: 0;
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.m-tabs .tabs_thumb {
+    position: absolute;
+    height: 4px;
+    border-radius: 2px;
+    background: #5ed0ba;
+    transition: ease 0.1s;
+}
+
+/*关闭按钮*/
+.u-close {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #ff0000;
+    border-radius: 50%;
+    transform-origin: 50% 50%;
+    transform: rotate(45deg);
+}
+
+.u-close:after, .u-close:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0px);
+    width: 1px;
+    height: 10px;
+    background: #ff0000;
+    border-radius: 50%;
+}
+
+.u-close:before {
+    transform: translate3d(-50%, -50%,0px) rotate(90deg);
+    transform-origin: 50% 50%;
+}

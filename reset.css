@@ -3,3 +3,19 @@ p{
     margin-block-start: auto;
     margin-block-end: auto;
 }
+ul{
+    list-style-type: none;
+    margin-block-start: unset;
+    margin-block-end: unset;
+    padding-inline-start: unset;
+}
+a{
+    text-decoration: none;
+}
+
+hr{
+    height: 1px;
+    border-width: 0;
+    background: green;
+    transform: scaleY(.5);
+}
