@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  (function () {
+    //错误
+    let 被不断修改的对象=null;
+    let 函数=function () {
+      let 泄露变量=被不断修改的对象;
+      let 没用的=function () {
+        if(泄露变量)
+          console.log('随便写的')
+      };
+      //不断修改引用
+      被不断修改的对象= {
+        很长的文字:new Array(1000000).join('*'),
+        注意我:function () {
+          console.log('无关紧要')
+        }
+      };
+      泄露变量=null;
+    };
+    setInterval(函数,100)
+  })()
+</script>
+</body>
+</html>
