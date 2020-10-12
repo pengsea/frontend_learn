@@ -1,0 +1,124 @@
+<style>
+    .container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .bar {
+        width: 20px;
+        height: 100px;
+        background-color: #999;
+        border-radius: 10px;
+        display: flex;
+        align-items: flex-end;
+        margin:0 5px;
+    }
+
+    .rate {
+        width: 20px;
+        background-color: #1092ed;
+        border-radius: 10px;
+    }
+</style>
+
+<body>
+    <div>
+        <input type="button" value="开始" onclick="pause()" />
+    </div>
+    <div class="container">
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+        <div class="bar">
+            <div class="rate"></div>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script>
+    let pointers = new Array(20)
+    let isPlaying = false;
+    let i = 0;
+    setInterval(() => {
+        if (!isPlaying) return;
+
+        try {
+            for (let j = 0; j < pointers.length; j++) { //循环改变每个指针高度
+                let rate = Math.abs(Math.sin(i + j));//利用正弦有规律的获取0~1的数。
+                console.log(rate);
+                $(`.container .bar:nth(${j}) .rate`).height(rate * 100)
+
+            }
+            i += 0.1;
+        } catch (e) {
+            console.error(e);
+        }
+
+    }, 100);
+    function pause() {
+        isPlaying = !isPlaying;
+        if (isPlaying) {
+            $('input').val('暂停')
+        } else {
+            $('input').val('开始')
+        }
+    }
+</script>
