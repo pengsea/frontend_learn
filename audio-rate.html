@@ -7,18 +7,19 @@
 
     .bar {
         width: 20px;
-        height: 100px;
+        height: 300px;
         background-color: #999;
         border-radius: 10px;
         display: flex;
         align-items: flex-end;
-        margin:0 5px;
+        margin: 0 5px;
     }
 
     .rate {
         width: 20px;
         background-color: #1092ed;
         border-radius: 10px;
+        transition: all .1s;
     }
 </style>
 
@@ -104,7 +105,7 @@
             for (let j = 0; j < pointers.length; j++) { //循环改变每个指针高度
                 let rate = Math.abs(Math.sin(i + j));//利用正弦有规律的获取0~1的数。
                 console.log(rate);
-                $(`.container .bar:nth(${j}) .rate`).height(rate * 100)
+                $(`.container .bar:nth(${j}) .rate`).height(rate * 300)
 
             }
             i += 0.1;
