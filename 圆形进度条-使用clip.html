@@ -1,0 +1,105 @@
+<style>
+    /*支持IE9及以上*/
+    .circle-bar {
+        margin: 20px;
+        font-size: 200px;
+        width: 1em;
+        height: 1em;
+        position: relative;
+        background-color: #29a6e6;
+    }
+
+    .circle-bar-left,
+    .circle-bar-right {
+        width: 1em;
+        height: 1em;
+    }
+
+    /*
+        这里采用clip剪切了圆，实现左右两个半圆，右半圆在后面
+     */
+    .circle-bar-right {
+        clip: rect(0, auto, auto, .5em);
+        background-color: #e2e2e2;
+    }
+
+    .circle-bar-left {
+        clip: rect(0, .5em, auto, 0);
+        background-color: #e2e2e2;
+    }
+
+    .mask {
+        width: 0.8em;
+        height: 0.8em;
+        background-color: #fff;
+        text-align: center;
+        line-height: 0.2em;
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    .mask :first-child {
+        font-size: 0.3em;
+        height: 0.8em;
+        line-height: 0.8em;
+        display: block;
+    }
+
+    /*所有的后代都水平垂直居中，这样就是同心圆了*/
+    .circle-bar * {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+    }
+
+    /*自身以及子元素都是圆*/
+    .circle-bar,
+    .circle-bar>* {
+        border-radius: 50%;
+    }
+</style>
+
+<div class="circle-bar">
+    <div class="circle-bar-left"></div>
+    <div class="circle-bar-right"></div>
+    <!--遮罩层，显示百分比-->
+    <div class="mask">
+        <span class="percent"></span>
+    </div>
+</div>
+
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    var interval;
+    $(function () {
+        var percent = 0;
+        interval = setInterval(function () {
+            //            var percent = parseInt($('.mask :first-child').text());
+            percent += 5;
+            var baseColor = $('.circle-bar').css('background-color');
+            if (percent <= 50) {
+                $('.circle-bar-right').css('transform', 'rotate(' + (percent * 3.6) + 'deg)');
+            } else {
+                $('.circle-bar-right').css({
+                    'transform': 'rotate(0deg)',
+                    'background-color': baseColor
+                });
+                $('.circle-bar-left').css('transform', 'rotate(' + ((percent - 50) * 3.6) + 'deg)');
+            }
+            // $('.mask :first-child').html(percent + "%");
+            if (percent == 105) {
+                $('.circle-bar-right').css({
+                    'transform': 'rotate(0deg)',
+                    'background-color': '#e2e2e2'
+                });
+                $('.circle-bar-left').css({
+                    'transform': 'rotate(0deg)',
+                    'background-color': '#e2e2e2'
+                });
+                percent = 0;
+            }
+        }, 100);
+    })
+</script>

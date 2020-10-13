@@ -1,0 +1,105 @@
+<style>
+    .circleProgress_wrapper {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #fff;
+    }
+
+    .wrapper {
+        width: 100px;
+        height: 200px;
+        position: absolute;
+        top: 0;
+        overflow: hidden;
+    }
+
+    .right {
+        right: 0;
+    }
+
+    .left {
+        left: 0;
+    }
+
+    .circleProgress {
+        width: 160px;
+        height: 160px;
+        border: 20px solid #29a6e6;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        transform: rotate(45deg);
+    }
+
+    .rightcircle {
+        border-right: 20px solid #e2e2e2;
+        border-top-width: 20px;
+        border-top-style: solid;
+        border-top-color: #e2e2e2;
+        right: 0;
+        animation: circleProgressLoad_right 5s linear infinite;
+    }
+
+    .leftcircle {
+        border-bottom: 20px solid #e2e2e2;
+        border-left: 20px solid #e2e2e2;
+        left: 0;
+        animation: circleProgressLoad_left 5s linear infinite;
+    }
+
+    /* @keyframes circleProgressLoad_right{
+            0%{
+                transform: rotate(45deg);
+            }
+            50%{
+                transform: rotate(225deg);
+            }
+            100%{
+                transform: rotate(225deg);
+            }
+        }
+        @keyframes circleProgressLoad_left{
+            0%{
+                transform: rotate(45deg);
+            }
+            50%{
+                transform: rotate(45deg);
+            }
+            100%{
+                transform: rotate(225deg);
+            }
+        } */
+</style>
+
+<div class="circleProgress_wrapper">
+    <div class="wrapper right">
+        <div class="circleProgress rightcircle"></div>
+    </div>
+    <div class="wrapper left">
+        <div class="circleProgress leftcircle"></div>
+    </div>
+</div>
+
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    $(function () {
+        var percent = 0;
+        var interval = setInterval(function () {
+            percent += 5;
+            if (percent <= 50) {
+                $('.rightcircle').css('transform', 'rotate(' + (45 + percent * 3.6) + 'deg)');
+            } else {
+                $('.leftcircle').css('transform', 'rotate(' + (45 + (percent - 50) * 3.6) + 'deg)');
+            }
+            if (percent == 105) {
+                $('.circleProgress').css({
+                    'transform': 'rotate(45deg)',
+                });
+                percent = 0;
+            }
+        }, 100);
+    })
+</script>
